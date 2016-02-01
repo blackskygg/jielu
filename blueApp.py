@@ -8,8 +8,8 @@ import json
 
 import blueMainUi
 
-PATH_TO_SETTINGS = "jielu.conf"
-PATH_TO_STATISTICS = "jielu.stat"
+PATH_TO_SETTINGS = "/home/sky/.jielu.conf"
+PATH_TO_STATISTICS = "/home/sky/.jielu.stat"
 
 slide_bt_down = "background-color: rgb(254,190,0); color: #2a313b"
 slide_bt_up = "background-color: rgb(42,49,59); color: #757575"
@@ -25,6 +25,12 @@ def call_zqz():
 class BlueApp:
     def __init__(self, argv):
         self.app = QApplication(argv)
+
+        self.mainWindow = QtWidgets.QMainWindow()
+        self.mainWindow.closeEvent = self.onClose
+        self.ui = blueMainUi.Ui_MainWindow()
+        self.ui.setupUi(self.mainWindow)
+
 
         #settings and statistics
         self.defaultSettings = dict(image_detect=True, text_detect=True,
@@ -42,11 +48,6 @@ class BlueApp:
         self.loadStatistics()
 
         #setup the visibles
-        self.mainWindow = QtWidgets.QMainWindow()
-        self.mainWindow.closeEvent = self.onClose
-
-        self.ui = blueMainUi.Ui_MainWindow()
-        self.ui.setupUi(self.mainWindow)
         self.setupUi2()
         self.setupWidget1()
         self.setupWidget2()
@@ -76,6 +77,7 @@ class BlueApp:
             self.self.stat["cleanMinutes"] = 0
             self.stat["cleanHours"] += 1
             self.saveStatistics()
+            self.refreshStatistics()
             self.checkLevel()
 
     def detectPorn(self):
@@ -142,26 +144,63 @@ class BlueApp:
         json.dump(self.stat, open(PATH_TO_STATISTICS, "w"))
 
     def refreshStatistics(self):
-        days = time.localtime(time.time() - self.settings["startDate"])
+        days = time.localtime(time.time())
 
-        while days[7] == 0:
+        delta = self.settings["goal"] - self.stat["cleanHours"]
+
+        if delta == 0:
             QtWidgets.QMessageBox.information(None, "Blue", "目标达成！！！\n请设置新的目标！！！")
             self.slideClicked3(None)
 
-        self.ui.lb_days.setText(str(days[7]))
+        self.ui.lb_days.setText(str(delta))
         self.ui.lb_goal.setText(str(self.settings["goal"]))
         self.ui.lb_achv.setText(self.achivementsList[self.stat["achivement"]])
         self.ui.lb_lv.setText("Lv. " + str(self.stat["achivement"]))
+        self.ui.lb_growth.setText(str(self.stat["cleanHours"] // 24))
+
+        #setup the water and ferilization
+        if days[7] == time.localtime(self.stat["lastWater"])[7]:
+            self.ui.lb_jiaoshui.setPixmap(QPixmap("res/ack.png"))
+            self.watered = True
+        else:
+            self.watered = False
+
+        if days[7] == time.localtime(self.stat["lastFertilize"])[7]:
+            self.ui.lb_shifei.setPixmap(QPixmap("res/ack.png"))
+            self.fertilized = True
+        else:
+            self.fertilized = False
 
 
+
+        #setup the calendar
         pixmapA = QPixmap("res/lu.png")
         pixmapB = QPixmap("res/blue.png")
-        for i in range(7):
+
+        h = days[3]
+        if h >= 0 and h < 6:
+            r = 0
+        elif h >= 6 and h < 12:
+            r = 1
+        elif h >= 12 and h < 18:
+            r = 2
+        else:
+            r = 3
+
+        for i in range(days[6]):
             for j in range(4):
                 if self.stat["stat"][i][j] == 0:
                     self.statLabels[i][j].setPixmap(pixmapA)
                 else:
                     self.statLabels[i][j].setPixmap(pixmapB)
+
+        day = days[6]
+        for j in range(r):
+            if self.stat["stat"][day][j] == 0:
+                self.statLabels[day][j].setPixmap(pixmapA)
+            else:
+                self.statLabels[day][j].setPixmap(pixmapB)
+
 
     def loadSettings(self):
         try:
@@ -170,7 +209,7 @@ class BlueApp:
             sfile.close()
         except:
             self.settings = self.defaultSettings
-            self.saveSettings()
+            self.saveSettings(None)
 
     def validateSettings(self):
         for keys in self.defaultSettings:
@@ -328,11 +367,15 @@ class BlueApp:
         pixmap = QPixmap()
         pixmap.load("res/ack.png")
         self.ui.lb_jiaoshui.setPixmap(pixmap)
+        self.stat["lastWater"] = time.time()
+        self.saveStatistics()
 
     def shifeiCheck(self, event):
         pixmap = QPixmap()
         pixmap.load("res/ack.png")
         self.ui.lb_shifei.setPixmap(pixmap)
+        self.stat["lastFertilize"] = time.time()
+        self.saveStatistics()
 
 
     def slideClicked4(self, event):
