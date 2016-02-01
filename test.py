@@ -28,11 +28,11 @@ SDL_UpdateWindowSurface(win)
 SDL_Delay(1000)
 
 #display an img
-#img = IMG_Load("flower.png")
-img = TTF_RenderUTF8_Solid(font1, "呵呵呵呵".encode(), SDL_Color(0, 0, 0))
+img = IMG_Load("flower.png".encode())
+#img = TTF_RenderUTF8_Solid(font1, "呵呵呵呵".encode(), SDL_Color(0, 0, 0))
 rect = SDL_Rect(0, int(disp_rect.h/2 - img.contents.h/2), img.contents.w, img.contents.h)
 rect2 = rect.__copy__()
-for i in range(int((disp_rect.w - img.contents.w)/2), disp_rect.w - img.contents.w):
+"""for i in range(int((disp_rect.w - img.contents.w)/2), disp_rect.w - img.contents.w):
     SDL_BlitSurface(background, rect, surface, rect)
     SDL_BlitSurface(background, rect2, surface, rect2)
     rect.x = i
@@ -41,4 +41,14 @@ for i in range(int((disp_rect.w - img.contents.w)/2), disp_rect.w - img.contents
     SDL_BlitSurface(img, None, surface, rect2)
     SDL_UpdateWindowSurface(win)
     SDL_Delay(10)
+"""
+for time in range(1000):
+    for i in range(0, 256):
+        SDL_FillRect(surface, None, SDL_MapRGB(surface.contents.format, i, i, 255 - i))
+        SDL_UpdateWindowSurface(win)
+        SDL_Delay(10)
+    for i in range(255, -1, -1):
+        SDL_FillRect(surface, None, SDL_MapRGB(surface.contents.format, i, i, 255 - i))
+        SDL_UpdateWindowSurface(win)
+        SDL_Delay(10)
 
