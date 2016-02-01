@@ -122,6 +122,9 @@
   <property name="autoFillBackground">
    <bool>true</bool>
   </property>
+  <property name="unifiedTitleAndToolBarOnMac">
+   <bool>false</bool>
+  </property>
   <widget class="QWidget" name="centralwidget">
    <property name="palette">
     <palette>
@@ -1411,8 +1414,11 @@
       </property>
       <property name="font">
        <font>
-        <pointsize>14</pointsize>
+        <pointsize>11</pointsize>
        </font>
+      </property>
+      <property name="styleSheet">
+       <string notr="true">color: #1b1f20</string>
       </property>
       <property name="text">
        <string>天</string>
@@ -1435,8 +1441,11 @@
       </property>
       <property name="font">
        <font>
-        <pointsize>14</pointsize>
+        <pointsize>11</pointsize>
        </font>
+      </property>
+      <property name="styleSheet">
+       <string notr="true">color: #ec6a00</string>
       </property>
       <property name="text">
        <string>100</string>
@@ -1459,8 +1468,11 @@
       </property>
       <property name="font">
        <font>
-        <pointsize>14</pointsize>
+        <pointsize>11</pointsize>
        </font>
+      </property>
+      <property name="styleSheet">
+       <string notr="true">color: #1b1f20</string>
       </property>
       <property name="text">
        <string>天</string>
@@ -1483,8 +1495,11 @@
       </property>
       <property name="font">
        <font>
-        <pointsize>14</pointsize>
+        <pointsize>11</pointsize>
        </font>
+      </property>
+      <property name="styleSheet">
+       <string notr="true">color: #ec6a00</string>
       </property>
       <property name="text">
        <string>60</string>
@@ -1507,8 +1522,11 @@
       </property>
       <property name="font">
        <font>
-        <pointsize>14</pointsize>
+        <pointsize>11</pointsize>
        </font>
+      </property>
+      <property name="styleSheet">
+       <string notr="true">color: #1b1f20</string>
       </property>
       <property name="text">
        <string>成就</string>
@@ -1531,8 +1549,11 @@
       </property>
       <property name="font">
        <font>
-        <pointsize>14</pointsize>
+        <pointsize>11</pointsize>
        </font>
+      </property>
+      <property name="styleSheet">
+       <string notr="true">color: #ec6a00</string>
       </property>
       <property name="text">
        <string>666666</string>
@@ -1555,13 +1576,16 @@
       </property>
       <property name="font">
        <font>
-        <pointsize>24</pointsize>
+        <pointsize>18</pointsize>
         <weight>50</weight>
         <bold>false</bold>
        </font>
       </property>
       <property name="autoFillBackground">
        <bool>false</bool>
+      </property>
+      <property name="styleSheet">
+       <string notr="true">color: #757575</string>
       </property>
       <property name="text">
        <string>Welcom,_______________________!</string>
@@ -1574,20 +1598,23 @@
       <property name="geometry">
        <rect>
         <x>22</x>
-        <y>230</y>
+        <y>225</y>
         <width>581</width>
         <height>38</height>
        </rect>
       </property>
       <property name="font">
        <font>
-        <pointsize>24</pointsize>
+        <pointsize>18</pointsize>
         <weight>50</weight>
         <bold>false</bold>
        </font>
       </property>
       <property name="autoFillBackground">
        <bool>false</bool>
+      </property>
+      <property name="styleSheet">
+       <string notr="true">color: #757575</string>
       </property>
       <property name="text">
        <string>xxxxxxxxxxxxxxxxxxxxxxx                 --xxx</string>
@@ -1608,7 +1635,7 @@
      </property>
      <property name="font">
       <font>
-       <pointsize>24</pointsize>
+       <pointsize>18</pointsize>
        <weight>50</weight>
        <bold>false</bold>
       </font>
@@ -1617,7 +1644,7 @@
       <bool>true</bool>
      </property>
      <property name="text">
-      <string>      主页</string>
+      <string>    主页</string>
      </property>
      <property name="alignment">
       <set>Qt::AlignCenter</set>
@@ -1634,7 +1661,7 @@
      </property>
      <property name="font">
       <font>
-       <pointsize>24</pointsize>
+       <pointsize>18</pointsize>
        <weight>50</weight>
        <bold>false</bold>
        <kerning>true</kerning>
@@ -1644,7 +1671,7 @@
       <bool>true</bool>
      </property>
      <property name="text">
-      <string>      呵呵</string>
+      <string>    呵呵</string>
      </property>
      <property name="alignment">
       <set>Qt::AlignCenter</set>
@@ -1661,7 +1688,7 @@
      </property>
      <property name="font">
       <font>
-       <pointsize>24</pointsize>
+       <pointsize>18</pointsize>
        <weight>50</weight>
        <bold>false</bold>
        <kerning>true</kerning>
@@ -1671,7 +1698,7 @@
       <bool>true</bool>
      </property>
      <property name="text">
-      <string>      设置</string>
+      <string>    设置</string>
      </property>
      <property name="alignment">
       <set>Qt::AlignCenter</set>
@@ -1688,7 +1715,7 @@
      </property>
      <property name="font">
       <font>
-       <pointsize>24</pointsize>
+       <pointsize>18</pointsize>
        <weight>50</weight>
        <bold>false</bold>
        <kerning>true</kerning>
@@ -1698,7 +1725,7 @@
       <bool>true</bool>
      </property>
      <property name="text">
-      <string>      成长</string>
+      <string>    成长</string>
      </property>
      <property name="alignment">
       <set>Qt::AlignCenter</set>
@@ -1713,8 +1740,14 @@
        <height>115</height>
       </rect>
      </property>
+     <property name="styleSheet">
+      <string notr="true"/>
+     </property>
      <property name="text">
       <string/>
+     </property>
+     <property name="scaledContents">
+      <bool>true</bool>
      </property>
      <property name="alignment">
       <set>Qt::AlignCenter</set>
@@ -1737,6 +1770,106 @@
      </property>
      <property name="scaledContents">
       <bool>true</bool>
+     </property>
+     <property name="alignment">
+      <set>Qt::AlignCenter</set>
+     </property>
+    </widget>
+    <widget class="QLabel" name="lb_nick">
+     <property name="geometry">
+      <rect>
+       <x>18</x>
+       <y>160</y>
+       <width>159</width>
+       <height>21</height>
+      </rect>
+     </property>
+     <property name="font">
+      <font>
+       <pointsize>11</pointsize>
+      </font>
+     </property>
+     <property name="styleSheet">
+      <string notr="true">color: #e0e0e0</string>
+     </property>
+     <property name="text">
+      <string>窜天猴</string>
+     </property>
+     <property name="alignment">
+      <set>Qt::AlignCenter</set>
+     </property>
+     <property name="wordWrap">
+      <bool>true</bool>
+     </property>
+    </widget>
+    <widget class="QLabel" name="lb_nick_2">
+     <property name="geometry">
+      <rect>
+       <x>18</x>
+       <y>184</y>
+       <width>159</width>
+       <height>21</height>
+      </rect>
+     </property>
+     <property name="font">
+      <font>
+       <pointsize>11</pointsize>
+      </font>
+     </property>
+     <property name="styleSheet">
+      <string notr="true">color: #e0e0e0</string>
+     </property>
+     <property name="text">
+      <string>Lv.2</string>
+     </property>
+     <property name="alignment">
+      <set>Qt::AlignCenter</set>
+     </property>
+     <property name="wordWrap">
+      <bool>true</bool>
+     </property>
+    </widget>
+    <widget class="QLabel" name="label_8">
+     <property name="geometry">
+      <rect>
+       <x>120</x>
+       <y>580</y>
+       <width>63</width>
+       <height>15</height>
+      </rect>
+     </property>
+     <property name="styleSheet">
+      <string notr="true">color:  #757575</string>
+     </property>
+     <property name="text">
+      <string>V1.0.0</string>
+     </property>
+     <property name="alignment">
+      <set>Qt::AlignCenter</set>
+     </property>
+    </widget>
+    <widget class="QLabel" name="lb5">
+     <property name="geometry">
+      <rect>
+       <x>18</x>
+       <y>348</y>
+       <width>159</width>
+       <height>33</height>
+      </rect>
+     </property>
+     <property name="font">
+      <font>
+       <pointsize>18</pointsize>
+       <weight>50</weight>
+       <bold>false</bold>
+       <kerning>true</kerning>
+      </font>
+     </property>
+     <property name="autoFillBackground">
+      <bool>true</bool>
+     </property>
+     <property name="text">
+      <string>    蛤蛤</string>
      </property>
      <property name="alignment">
       <set>Qt::AlignCenter</set>
