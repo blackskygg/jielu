@@ -1,8 +1,0 @@
-[Unit]
-Description=A service to help you get rid of porns
-
-[Service]
-Type=forking
-ExecStart=emacs
-ExecReload=emacs
-ExecStop=kill `pidof emacs`
