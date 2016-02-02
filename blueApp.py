@@ -3,21 +3,24 @@ from PyQt5 import QtCore, QtGui, QtWidgets
 from PyQt5.QtWidgets import QApplication, QSystemTrayIcon, QLabel
 from PyQt5.QtCore import QPropertyAnimation, QRect, QByteArray, QTimer, QTimerEvent
 from PyQt5.QtGui import QPixmap, QMovie, QIcon
-import sys, time
+import sys, time, os
 import json
 
 import blueMainUi
+import porn_detector_final
+import threading
 
-PATH_TO_SETTINGS = "/home/sky/.jielu.conf"
-PATH_TO_STATISTICS = "/home/sky/.jielu.stat"
+PATH_TO_SETTINGS = "jielu.conf"
+PATH_TO_STATISTICS = "jielu.stat"
 
 slide_bt_down = "background-color: rgb(254,190,0); color: #2a313b"
 slide_bt_up = "background-color: rgb(42,49,59); color: #757575"
 slide_bt_mid = "background-color: rgb(236,106,0); color: #757575"
 
-def porn_detector():
-    return True
-    pass
+porn_detected = False
+image = True
+text = False
+develop = False
 
 def call_zqz():
     pass
@@ -36,7 +39,7 @@ class BlueApp:
         self.defaultSettings = dict(image_detect=True, text_detect=True,
                                     game_type=0, pipeRank=0,
                                     goal = 10, startDate = time.time(),
-                                    avata = "shot.png", name = "窜天猴")
+                                    avata = "res/icon.png", name = "窜天猴")
         self.defaultStat = dict(stat = [ [0, 0, 0, 0] for i in range(7)],
                                 achivement = 0, lastWater = 0, lastFertilize = 0,
                                 cleanHours = 0, cleanMinutes = 0)
@@ -52,12 +55,19 @@ class BlueApp:
         self.setupWidget1()
         self.setupWidget2()
         self.setupWidget3()
+        self.setupWidget4()
+        self.refreshStatistics()
+
+
+        #setup porn_detector
+        self.devMode = False
+        self.timeToExit = False
+        self.pornDectector = porn_detector_final.PornDetector()
+        self.pornDetected = False
+        self.detectThread = threading.Thread(target = self.detectPorn)
+        self.detectThread.start()
 
         #setup timer
-        self.detectTimer = QTimer()
-        self.detectTimer.setInterval(4000)
-        self.detectTimer.timeout.connect(self.detectPorn)
-        self.detectTimer.start()
 
         self.cleanMinute = 0
         self.MinuteTimer = QTimer()
@@ -80,26 +90,41 @@ class BlueApp:
             self.refreshStatistics()
             self.checkLevel()
 
+    def call_zqz(self):
+        if self.settings["game_type"] == 0:
+            os.system("python2 easy_maze/PyMaze.py")
+        else :
+            os.system("python2 esay_game/play.py")
+        QtWidgets.QMessageBox.information(None, "bluer", "你有10s的时间关掉黄黄的东西。")
+        time.sleep(10)
+
+
+
     def detectPorn(self):
-        if porn_detector:
-            call_zqz()
-            self.stat["cleanHours"] -= 24
-            if self.stat["cleanHours"] < 0:
-                self.stat["cleanHours"] = 0
+        if self.timeToExit:
+            exit()
+        while(True):
+            if "PORN_DETECTED" == self.pornDectector.porn_detector(self.settings["image_detect"], self.settings["text_detect"], self.devMode):
+                self.call_zqz()
+                self.stat["cleanHours"] -= 24
+                if self.stat["cleanHours"] < 0:
+                    self.stat["cleanHours"] = 0
+
+                l = self.stat["stat"][time.localtime(time.time())[6]]
+                h = time.localtime(time.time())[3]
+                if h >= 0 and h < 6:
+                    l[0] = 1
+                elif h >= 6 and h < 12:
+                    l[1] = 1
+                elif h >= 12 and h < 18:
+                    l[2] = 1;
+                else:
+                    l[3] = 1;
+
                 self.saveStatistics()
+                self.refreshStatistics()
 
-            l = self.stat["stat"][time.localtime(time.time())[6]]
-            h = time.localtime(time.time())[3]
-            if h >= 0 and h < 6:
-                l[0] = 1
-            elif h >= 6 and h < 12:
-                l[1] = 1
-            elif h >= 12 and h < 18:
-                l[2] = 1;
-            else:
-                l[3] = 1;
-
-            self.refreshStatistics()
+            time.sleep(4)
 
     def onClose(self, event):
         self.mainWindow.hide()
@@ -129,8 +154,10 @@ class BlueApp:
             sfile.close()
         except Exception:
             return
+
         QtWidgets.QMessageBox.information(None, "Blue", "设置已保存:D")
 
+        self.refreshStatistics()
 
     def checkLevel(self):
         for i in range(5, -1, -1):
@@ -201,6 +228,13 @@ class BlueApp:
             else:
                 self.statLabels[day][j].setPixmap(pixmapB)
 
+        #setup the wall
+        for i in range(6):
+            self.achivIcons[i].setPixmap(QPixmap("res/" + str(i) * 2))
+
+        for i in range(self.stat["achivement"] + 1):
+            self.achivIcons[i].setPixmap(QPixmap("res/" + str(i)))
+
 
     def loadSettings(self):
         try:
@@ -232,12 +266,7 @@ class BlueApp:
                 self.stat[keys] = self.defaultStat[keys]
         self.saveStatistics()
 
-    def setupUi2(self):
-        #setup event handling
-        self.sideButtons = [self.ui.lb1, self.ui.lb2, self.ui.lb3, self.ui.lb4, self.ui.lb5]
-        self.setupAnimes()
-        self.setupSideButtons()
-
+    def refreshInfo(self):
         #setup avata
         pixmap = QPixmap()
         pixmap.load("res/avata_mask")
@@ -245,6 +274,33 @@ class BlueApp:
         self.ui.lb_avata.setMask(pixmap.mask())
         pixmap.load(self.settings["avata"])
         self.ui.lb_avata.setPixmap(pixmap)
+
+#        self.ui.lb_avata2.setMask(pixmap.mask())
+#        pixmap.load(self.settings["avata"])
+#        self.ui.lb_avata2.setPixmap(pixmap)
+
+
+        #setup the name
+        self.ui.lb_welcomname.setText(self.settings["name"])
+        self.ui.lb_nick.setText(self.settings["name"])
+
+
+
+    def appExit(self, event):
+        if self.devMode == False:
+            QtWidgets.QMessageBox.information(None, "bluer", "开发者模式开启")
+            self.devMode = True
+        else:
+            QtWidgets.QMessageBox.information(None, "bluer", "开发者模式关闭")
+            self.devMode = False
+
+    def setupUi2(self):
+        #setup event handling
+        self.sideButtons = [self.ui.lb1, self.ui.lb2, self.ui.lb3, self.ui.lb4, self.ui.lb5]
+        self.ui.lb_exit.mousePressEvent = self.appExit
+        self.setupAnimes()
+        self.setupSideButtons()
+        self.refreshInfo()
 
         #setup tray
         self.icon = QIcon("res/logo-tray.png")
@@ -394,10 +450,6 @@ class BlueApp:
             self.selectedWidget = self.ui.widget5
 
     def setupWidget1(self):
-        #setup the top bar
-        self.ui.lb_welcomname.setText(self.settings["name"] + "   " * 10)
-        self.ui.lb_nick.setText(self.settings["name"])
-
         #setup the tree
         movie = QMovie()
         movie.setFileName("res/tree.gif")
@@ -419,8 +471,6 @@ class BlueApp:
                 self.statLabels[i][j].setAutoFillBackground(False)
                 self.statLabels[i][j].setAlignment(QtCore.Qt.AlignCenter)
                 self.ui.gridLayout.addWidget(self.statLabels[i][j], i, j, 1, 1)
-
-        self.refreshStatistics()
 
     def setupWidget2(self):
         self.ui.lb_jiaoshui.mousePressEvent = self.jiaoshuiCheck
@@ -446,6 +496,13 @@ class BlueApp:
         self.textClicked(None)
         self.textClicked(None)
 
+    def setupWidget4(self):
+        self.achivIcons = [self.ui.lb_a0, self.ui.lb_a1, self.ui.lb_a2,
+                           self.ui.lb_a3, self.ui.lb_a4, self.ui.lb_a5]
+
+        for i in range(6):
+            self.achivIcons[i].setPixmap(QPixmap("res/" + str(i) * 2))
+
     def mazeCliked(self, event):
         pixmap = QPixmap()
         pixmap.load("res/checked.png")
@@ -467,29 +524,27 @@ class BlueApp:
         self.settings["game_type"] = 1
 
     def picCliked(self, event):
-        if self.settings["image_detect"]:
-            pixmap = QPixmap()
-            pixmap.load("res/unchecked.png")
-            self.ui.check_pic.setPixmap(pixmap)
-            self.settings["image_detect"] = False
-        else:
-            pixmap = QPixmap()
-            pixmap.load("res/checked.png")
-            self.ui.check_pic.setPixmap(pixmap)
-            self.settings["image_detect"] = True
+        pixmap = QPixmap()
+        pixmap.load("res/checked.png")
+        self.ui.check_pic.setPixmap(pixmap)
+
+        pixmap.load("res/unchecked.png")
+        self.ui.check_text.setPixmap(pixmap)
+
+        self.settings["pic_detect"] = 1
+        self.settings["text_detect"] = 0
 
 
     def textClicked(self, event):
-        if self.settings["text_detect"]:
-            pixmap = QPixmap()
-            pixmap.load("res/unchecked.png")
-            self.ui.check_text.setPixmap(pixmap)
-            self.settings["text_detect"] = False
-        else:
-            pixmap = QPixmap()
-            pixmap.load("res/checked.png")
-            self.ui.check_text.setPixmap(pixmap)
-            self.settings["text_detect"] = True
+        pixmap = QPixmap()
+        pixmap.load("res/checked.png")
+        self.ui.check_text.setPixmap(pixmap)
+
+        pixmap.load("res/unchecked.png")
+        self.ui.check_pic.setPixmap(pixmap)
+
+        self.settings["pic_detect"] = 1
+        self.settings["text_detect"] = 1
 
     def setupSideButtons(self):
         self.ui.lb1.enterEvent = self.slideEnter1
@@ -532,4 +587,4 @@ class blueSettings():
         pass
 
 blueapp = BlueApp(sys.argv)
-input()
+blueapp.app.exec()

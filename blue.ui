@@ -117,7 +117,7 @@
    </palette>
   </property>
   <property name="windowTitle">
-   <string>Blue</string>
+   <string>Bluer</string>
   </property>
   <property name="autoFillBackground">
    <bool>true</bool>
@@ -394,7 +394,7 @@
      </property>
      <property name="font">
       <font>
-       <family>MF YueHei (Noncommercial)</family>
+       <family>Microsoft JhengHei</family>
        <pointsize>11</pointsize>
       </font>
      </property>
@@ -1002,7 +1002,7 @@
       </property>
       <property name="font">
        <font>
-        <family>MF YueHei (Noncommercial)</family>
+        <family>Microsoft JhengHei</family>
         <pointsize>11</pointsize>
        </font>
       </property>
@@ -1030,7 +1030,7 @@
       </property>
       <property name="font">
        <font>
-        <family>MF YueHei (Noncommercial)</family>
+        <family>Microsoft JhengHei</family>
         <pointsize>11</pointsize>
        </font>
       </property>
@@ -1058,7 +1058,7 @@
       </property>
       <property name="font">
        <font>
-        <family>MF YueHei (Noncommercial)</family>
+        <family>Microsoft JhengHei</family>
         <pointsize>11</pointsize>
        </font>
       </property>
@@ -1086,7 +1086,7 @@
       </property>
       <property name="font">
        <font>
-        <family>MF YueHei (Noncommercial)</family>
+        <family>Microsoft JhengHei</family>
         <pointsize>11</pointsize>
        </font>
       </property>
@@ -1114,7 +1114,7 @@
       </property>
       <property name="font">
        <font>
-        <family>MF YueHei (Noncommercial)</family>
+        <family>Microsoft JhengHei</family>
         <pointsize>11</pointsize>
        </font>
       </property>
@@ -1136,13 +1136,14 @@
        <rect>
         <x>74</x>
         <y>197</y>
-        <width>81</width>
+        <width>111</width>
         <height>38</height>
        </rect>
       </property>
       <property name="font">
        <font>
-        <pointsize>17</pointsize>
+        <family>Microsoft JhengHei</family>
+        <pointsize>15</pointsize>
         <weight>50</weight>
         <bold>false</bold>
        </font>
@@ -1154,7 +1155,7 @@
        <string notr="true">color: #757575</string>
       </property>
       <property name="text">
-       <string>Welcom,</string>
+       <string>Welcome,</string>
       </property>
       <property name="alignment">
        <set>Qt::AlignLeading|Qt::AlignLeft|Qt::AlignVCenter</set>
@@ -1171,7 +1172,8 @@
       </property>
       <property name="font">
        <font>
-        <pointsize>17</pointsize>
+        <family>Microsoft JhengHei</family>
+        <pointsize>14</pointsize>
         <weight>50</weight>
         <bold>false</bold>
        </font>
@@ -1213,6 +1215,11 @@
        <layout class="QVBoxLayout" name="verticalLayout">
         <item>
          <widget class="QLabel" name="label_18">
+          <property name="font">
+           <font>
+            <family>Microsoft JhengHei</family>
+           </font>
+          </property>
           <property name="styleSheet">
            <string notr="true">color: #1b1f20</string>
           </property>
@@ -1226,6 +1233,11 @@
         </item>
         <item>
          <widget class="QLabel" name="label_17">
+          <property name="font">
+           <font>
+            <family>Microsoft JhengHei</family>
+           </font>
+          </property>
           <property name="styleSheet">
            <string notr="true">color: #1b1f20</string>
           </property>
@@ -1239,6 +1251,11 @@
         </item>
         <item>
          <widget class="QLabel" name="label_19">
+          <property name="font">
+           <font>
+            <family>Microsoft JhengHei</family>
+           </font>
+          </property>
           <property name="styleSheet">
            <string notr="true">color: #1b1f20</string>
           </property>
@@ -1252,6 +1269,11 @@
         </item>
         <item>
          <widget class="QLabel" name="label_21">
+          <property name="font">
+           <font>
+            <family>Microsoft JhengHei</family>
+           </font>
+          </property>
           <property name="styleSheet">
            <string notr="true">color: #1b1f20</string>
           </property>
@@ -1265,6 +1287,11 @@
         </item>
         <item>
          <widget class="QLabel" name="label_20">
+          <property name="font">
+           <font>
+            <family>Microsoft JhengHei</family>
+           </font>
+          </property>
           <property name="styleSheet">
            <string notr="true">color: #1b1f20</string>
           </property>
@@ -1278,6 +1305,11 @@
         </item>
         <item>
          <widget class="QLabel" name="label_22">
+          <property name="font">
+           <font>
+            <family>Microsoft JhengHei</family>
+           </font>
+          </property>
           <property name="styleSheet">
            <string notr="true">color: #1b1f20</string>
           </property>
@@ -1291,6 +1323,11 @@
         </item>
         <item>
          <widget class="QLabel" name="label_10">
+          <property name="font">
+           <font>
+            <family>Microsoft JhengHei</family>
+           </font>
+          </property>
           <property name="styleSheet">
            <string notr="true">color: #1b1f20</string>
           </property>
@@ -1318,6 +1355,7 @@
          <widget class="QLabel" name="label_24">
           <property name="font">
            <font>
+            <family>Microsoft JhengHei</family>
             <pointsize>10</pointsize>
            </font>
           </property>
@@ -1339,6 +1377,7 @@
          <widget class="QLabel" name="label_26">
           <property name="font">
            <font>
+            <family>Microsoft JhengHei</family>
             <pointsize>10</pointsize>
            </font>
           </property>
@@ -1357,6 +1396,7 @@
          <widget class="QLabel" name="label_25">
           <property name="font">
            <font>
+            <family>Microsoft JhengHei</family>
             <pointsize>10</pointsize>
            </font>
           </property>
@@ -1375,6 +1415,7 @@
          <widget class="QLabel" name="label_23">
           <property name="font">
            <font>
+            <family>Microsoft JhengHei</family>
             <pointsize>10</pointsize>
            </font>
           </property>
@@ -1406,19 +1447,19 @@
      <widget class="QLabel" name="lb_welcomname">
       <property name="geometry">
        <rect>
-        <x>160</x>
+        <x>180</x>
         <y>197</y>
-        <width>431</width>
+        <width>401</width>
         <height>38</height>
        </rect>
       </property>
       <property name="font">
        <font>
-        <family>MF YueHei (Noncommercial)</family>
-        <pointsize>17</pointsize>
+        <family>Microsoft JhengHei</family>
+        <pointsize>15</pointsize>
         <weight>50</weight>
         <bold>false</bold>
-        <underline>true</underline>
+        <underline>false</underline>
        </font>
       </property>
       <property name="autoFillBackground">
@@ -1445,7 +1486,7 @@
       </property>
       <property name="font">
        <font>
-        <family>MF YueHei (Noncommercial)</family>
+        <family>Microsoft JhengHei</family>
         <pointsize>11</pointsize>
        </font>
       </property>
@@ -1462,24 +1503,6 @@
        <bool>false</bool>
       </property>
      </widget>
-     <zorder>lb_tree</zorder>
-     <zorder>label_2</zorder>
-     <zorder>label_3</zorder>
-     <zorder>label_4</zorder>
-     <zorder>label_5</zorder>
-     <zorder>label_6</zorder>
-     <zorder>lb_days</zorder>
-     <zorder>lb_tian_2</zorder>
-     <zorder>lb_goal</zorder>
-     <zorder>lb_tian_3</zorder>
-     <zorder>lb_achv</zorder>
-     <zorder>lb_welcom</zorder>
-     <zorder>lb_welcom_2</zorder>
-     <zorder>widget</zorder>
-     <zorder>lb_welcomname</zorder>
-     <zorder>lb_tian_4</zorder>
-     <zorder>widget4</zorder>
-     <zorder>widget4</zorder>
     </widget>
     <widget class="QLabel" name="lb1">
      <property name="geometry">
@@ -1492,9 +1515,11 @@
      </property>
      <property name="font">
       <font>
+       <family>Microsoft JhengHei UI</family>
        <pointsize>18</pointsize>
        <weight>50</weight>
        <bold>false</bold>
+       <kerning>false</kerning>
       </font>
      </property>
      <property name="autoFillBackground">
@@ -1518,10 +1543,11 @@
      </property>
      <property name="font">
       <font>
+       <family>Microsoft JhengHei UI</family>
        <pointsize>18</pointsize>
        <weight>50</weight>
        <bold>false</bold>
-       <kerning>true</kerning>
+       <kerning>false</kerning>
       </font>
      </property>
      <property name="autoFillBackground">
@@ -1545,10 +1571,11 @@
      </property>
      <property name="font">
       <font>
+       <family>Microsoft JhengHei UI</family>
        <pointsize>18</pointsize>
        <weight>50</weight>
        <bold>false</bold>
-       <kerning>true</kerning>
+       <kerning>false</kerning>
       </font>
      </property>
      <property name="autoFillBackground">
@@ -1572,10 +1599,11 @@
      </property>
      <property name="font">
       <font>
+       <family>Microsoft JhengHei UI</family>
        <pointsize>18</pointsize>
        <weight>50</weight>
        <bold>false</bold>
-       <kerning>true</kerning>
+       <kerning>false</kerning>
       </font>
      </property>
      <property name="autoFillBackground">
@@ -1610,7 +1638,7 @@
       <set>Qt::AlignCenter</set>
      </property>
     </widget>
-    <widget class="QLabel" name="label_7">
+    <widget class="QLabel" name="lb_exit">
      <property name="geometry">
       <rect>
        <x>41</x>
@@ -1643,8 +1671,11 @@
      </property>
      <property name="font">
       <font>
-       <family>MF YueHei (Noncommercial)</family>
+       <family>Microsoft JhengHei UI</family>
        <pointsize>11</pointsize>
+       <weight>50</weight>
+       <bold>false</bold>
+       <kerning>false</kerning>
       </font>
      </property>
      <property name="styleSheet">
@@ -1671,8 +1702,11 @@
      </property>
      <property name="font">
       <font>
-       <family>MF YueHei (Noncommercial)</family>
+       <family>Microsoft JhengHei UI</family>
        <pointsize>11</pointsize>
+       <weight>50</weight>
+       <bold>false</bold>
+       <kerning>false</kerning>
       </font>
      </property>
      <property name="styleSheet">
@@ -1699,7 +1733,10 @@
      </property>
      <property name="font">
       <font>
-       <family>MF YueHei (Noncommercial)</family>
+       <family>Microsoft JhengHei UI</family>
+       <weight>50</weight>
+       <bold>false</bold>
+       <kerning>false</kerning>
       </font>
      </property>
      <property name="styleSheet">
@@ -1723,10 +1760,11 @@
      </property>
      <property name="font">
       <font>
+       <family>Microsoft JhengHei UI</family>
        <pointsize>18</pointsize>
        <weight>50</weight>
        <bold>false</bold>
-       <kerning>true</kerning>
+       <kerning>false</kerning>
       </font>
      </property>
      <property name="autoFillBackground">
@@ -2406,6 +2444,7 @@
       </property>
       <property name="font">
        <font>
+        <family>Microsoft JhengHei</family>
         <pointsize>18</pointsize>
         <weight>50</weight>
         <bold>false</bold>
@@ -2435,6 +2474,7 @@
       </property>
       <property name="font">
        <font>
+        <family>Microsoft JhengHei</family>
         <pointsize>18</pointsize>
         <weight>50</weight>
         <bold>false</bold>
@@ -2464,6 +2504,7 @@
       </property>
       <property name="font">
        <font>
+        <family>Microsoft JhengHei</family>
         <pointsize>18</pointsize>
         <weight>50</weight>
         <bold>false</bold>
@@ -2738,6 +2779,7 @@
       </property>
       <property name="font">
        <font>
+        <family>Microsoft JhengHei</family>
         <pointsize>13</pointsize>
        </font>
       </property>
@@ -2787,6 +2829,7 @@
       </property>
       <property name="font">
        <font>
+        <family>Microsoft JhengHei</family>
         <pointsize>18</pointsize>
         <weight>50</weight>
         <bold>false</bold>
@@ -2813,6 +2856,7 @@
       </property>
       <property name="font">
        <font>
+        <family>Microsoft JhengHei</family>
         <pointsize>18</pointsize>
         <weight>50</weight>
         <bold>false</bold>
@@ -2822,7 +2866,7 @@
        <bool>false</bool>
       </property>
       <property name="text">
-       <string>检测项目</string>
+       <string>监控强度</string>
       </property>
       <property name="alignment">
        <set>Qt::AlignCenter</set>
@@ -2839,6 +2883,7 @@
       </property>
       <property name="font">
        <font>
+        <family>Microsoft JhengHei</family>
         <pointsize>18</pointsize>
         <weight>50</weight>
         <bold>false</bold>
@@ -2881,12 +2926,13 @@
        <rect>
         <x>290</x>
         <y>280</y>
-        <width>151</width>
+        <width>311</width>
         <height>33</height>
        </rect>
       </property>
       <property name="font">
        <font>
+        <family>Microsoft JhengHei</family>
         <pointsize>18</pointsize>
         <weight>50</weight>
         <bold>false</bold>
@@ -2896,7 +2942,7 @@
        <bool>false</bool>
       </property>
       <property name="text">
-       <string>图片和视频</string>
+       <string>严格</string>
       </property>
       <property name="alignment">
        <set>Qt::AlignLeading|Qt::AlignLeft|Qt::AlignVCenter</set>
@@ -2907,12 +2953,13 @@
        <rect>
         <x>290</x>
         <y>320</y>
-        <width>114</width>
+        <width>321</width>
         <height>33</height>
        </rect>
       </property>
       <property name="font">
        <font>
+        <family>Microsoft JhengHei</family>
         <pointsize>18</pointsize>
         <weight>50</weight>
         <bold>false</bold>
@@ -2922,7 +2969,7 @@
        <bool>false</bool>
       </property>
       <property name="text">
-       <string>文字)</string>
+       <string>非常严格</string>
       </property>
       <property name="alignment">
        <set>Qt::AlignLeading|Qt::AlignLeft|Qt::AlignVCenter</set>
@@ -2961,6 +3008,7 @@
       </property>
       <property name="font">
        <font>
+        <family>Microsoft JhengHei</family>
         <pointsize>18</pointsize>
         <weight>50</weight>
         <bold>false</bold>
@@ -2987,6 +3035,7 @@
       </property>
       <property name="font">
        <font>
+        <family>Microsoft JhengHei</family>
         <pointsize>18</pointsize>
         <weight>50</weight>
         <bold>false</bold>
@@ -3078,6 +3127,7 @@
       </property>
       <property name="font">
        <font>
+        <family>Microsoft JhengHei</family>
         <pointsize>18</pointsize>
         <weight>50</weight>
         <bold>false</bold>
@@ -3275,7 +3325,7 @@
        <set>Qt::AlignCenter</set>
       </property>
      </widget>
-     <widget class="QLabel" name="label_14">
+     <widget class="QLabel" name="lb_a0">
       <property name="geometry">
        <rect>
         <x>26</x>
@@ -3288,17 +3338,14 @@
        <bool>false</bool>
       </property>
       <property name="styleSheet">
-       <string notr="true">border-width: 3;
-border-style: outset;
-border-radius: 50;
-
+       <string notr="true">
 </string>
       </property>
       <property name="frameShape">
-       <enum>QFrame::Box</enum>
+       <enum>QFrame::NoFrame</enum>
       </property>
       <property name="frameShadow">
-       <enum>QFrame::Raised</enum>
+       <enum>QFrame::Plain</enum>
       </property>
       <property name="text">
        <string/>
@@ -3307,7 +3354,7 @@ border-radius: 50;
        <bool>true</bool>
       </property>
      </widget>
-     <widget class="QLabel" name="label_29">
+     <widget class="QLabel" name="lb_a1">
       <property name="geometry">
        <rect>
         <x>235</x>
@@ -3320,17 +3367,14 @@ border-radius: 50;
        <bool>false</bool>
       </property>
       <property name="styleSheet">
-       <string notr="true">border-width: 3;
-border-style: outset;
-border-radius: 50;
-
+       <string notr="true">
 </string>
       </property>
       <property name="frameShape">
-       <enum>QFrame::Box</enum>
+       <enum>QFrame::NoFrame</enum>
       </property>
       <property name="frameShadow">
-       <enum>QFrame::Raised</enum>
+       <enum>QFrame::Plain</enum>
       </property>
       <property name="text">
        <string/>
@@ -3339,7 +3383,7 @@ border-radius: 50;
        <bool>true</bool>
       </property>
      </widget>
-     <widget class="QLabel" name="label_30">
+     <widget class="QLabel" name="lb_a2">
       <property name="geometry">
        <rect>
         <x>444</x>
@@ -3352,17 +3396,14 @@ border-radius: 50;
        <bool>false</bool>
       </property>
       <property name="styleSheet">
-       <string notr="true">border-width: 3;
-border-style: outset;
-border-radius: 50;
-
+       <string notr="true">
 </string>
       </property>
       <property name="frameShape">
-       <enum>QFrame::Box</enum>
+       <enum>QFrame::NoFrame</enum>
       </property>
       <property name="frameShadow">
-       <enum>QFrame::Raised</enum>
+       <enum>QFrame::Plain</enum>
       </property>
       <property name="text">
        <string/>
@@ -3371,7 +3412,7 @@ border-radius: 50;
        <bool>true</bool>
       </property>
      </widget>
-     <widget class="QLabel" name="label_31">
+     <widget class="QLabel" name="lb_a3">
       <property name="geometry">
        <rect>
         <x>26</x>
@@ -3384,17 +3425,14 @@ border-radius: 50;
        <bool>false</bool>
       </property>
       <property name="styleSheet">
-       <string notr="true">border-width: 3;
-border-style: outset;
-border-radius: 50;
-
+       <string notr="true">
 </string>
       </property>
       <property name="frameShape">
-       <enum>QFrame::Box</enum>
+       <enum>QFrame::NoFrame</enum>
       </property>
       <property name="frameShadow">
-       <enum>QFrame::Raised</enum>
+       <enum>QFrame::Plain</enum>
       </property>
       <property name="text">
        <string/>
@@ -3403,7 +3441,7 @@ border-radius: 50;
        <bool>true</bool>
       </property>
      </widget>
-     <widget class="QLabel" name="label_32">
+     <widget class="QLabel" name="lb_a5">
       <property name="geometry">
        <rect>
         <x>444</x>
@@ -3416,17 +3454,14 @@ border-radius: 50;
        <bool>false</bool>
       </property>
       <property name="styleSheet">
-       <string notr="true">border-width: 3;
-border-style: outset;
-border-radius: 50;
-
+       <string notr="true">
 </string>
       </property>
       <property name="frameShape">
-       <enum>QFrame::Box</enum>
+       <enum>QFrame::NoFrame</enum>
       </property>
       <property name="frameShadow">
-       <enum>QFrame::Raised</enum>
+       <enum>QFrame::Plain</enum>
       </property>
       <property name="text">
        <string/>
@@ -3435,7 +3470,7 @@ border-radius: 50;
        <bool>true</bool>
       </property>
      </widget>
-     <widget class="QLabel" name="label_33">
+     <widget class="QLabel" name="lb_a4">
       <property name="geometry">
        <rect>
         <x>235</x>
@@ -3448,17 +3483,14 @@ border-radius: 50;
        <bool>false</bool>
       </property>
       <property name="styleSheet">
-       <string notr="true">border-width: 3;
-border-style: outset;
-border-radius: 50;
-
+       <string notr="true">
 </string>
       </property>
       <property name="frameShape">
-       <enum>QFrame::Box</enum>
+       <enum>QFrame::NoFrame</enum>
       </property>
       <property name="frameShadow">
-       <enum>QFrame::Raised</enum>
+       <enum>QFrame::Plain</enum>
       </property>
       <property name="text">
        <string/>
@@ -3480,7 +3512,7 @@ border-radius: 50;
        <string/>
       </property>
       <property name="pixmap">
-       <pixmap>res/fis1h_03.png</pixmap>
+       <pixmap>res/成就_bar.png</pixmap>
       </property>
       <property name="scaledContents">
        <bool>true</bool>
@@ -3493,14 +3525,18 @@ border-radius: 50;
       <property name="geometry">
        <rect>
         <x>40</x>
-        <y>310</y>
+        <y>305</y>
         <width>131</width>
         <height>31</height>
        </rect>
       </property>
       <property name="font">
        <font>
-        <pointsize>18</pointsize>
+        <family>Microsoft JhengHei UI</family>
+        <pointsize>13</pointsize>
+        <weight>50</weight>
+        <bold>false</bold>
+        <kerning>false</kerning>
        </font>
       </property>
       <property name="text">
@@ -3514,14 +3550,18 @@ border-radius: 50;
       <property name="geometry">
        <rect>
         <x>240</x>
-        <y>310</y>
+        <y>305</y>
         <width>141</width>
         <height>31</height>
        </rect>
       </property>
       <property name="font">
        <font>
-        <pointsize>18</pointsize>
+        <family>Microsoft JhengHei UI</family>
+        <pointsize>13</pointsize>
+        <weight>50</weight>
+        <bold>false</bold>
+        <kerning>false</kerning>
        </font>
       </property>
       <property name="text">
@@ -3535,14 +3575,18 @@ border-radius: 50;
       <property name="geometry">
        <rect>
         <x>450</x>
-        <y>310</y>
+        <y>305</y>
         <width>141</width>
         <height>31</height>
        </rect>
       </property>
       <property name="font">
        <font>
-        <pointsize>18</pointsize>
+        <family>Microsoft JhengHei UI</family>
+        <pointsize>13</pointsize>
+        <weight>50</weight>
+        <bold>false</bold>
+        <kerning>false</kerning>
        </font>
       </property>
       <property name="text">
@@ -3556,18 +3600,22 @@ border-radius: 50;
       <property name="geometry">
        <rect>
         <x>30</x>
-        <y>523</y>
+        <y>512</y>
         <width>151</width>
         <height>31</height>
        </rect>
       </property>
       <property name="font">
        <font>
-        <pointsize>18</pointsize>
+        <family>Microsoft JhengHei UI</family>
+        <pointsize>13</pointsize>
+        <weight>50</weight>
+        <bold>false</bold>
+        <kerning>false</kerning>
        </font>
       </property>
       <property name="text">
-       <string>从头开始</string>
+       <string>钢筋铁骨</string>
       </property>
       <property name="alignment">
        <set>Qt::AlignCenter</set>
@@ -3577,14 +3625,18 @@ border-radius: 50;
       <property name="geometry">
        <rect>
         <x>240</x>
-        <y>523</y>
+        <y>512</y>
         <width>151</width>
         <height>31</height>
        </rect>
       </property>
       <property name="font">
        <font>
-        <pointsize>18</pointsize>
+        <family>Microsoft JhengHei UI</family>
+        <pointsize>13</pointsize>
+        <weight>50</weight>
+        <bold>false</bold>
+        <kerning>false</kerning>
        </font>
       </property>
       <property name="text">
@@ -3598,14 +3650,18 @@ border-radius: 50;
       <property name="geometry">
        <rect>
         <x>440</x>
-        <y>523</y>
+        <y>512</y>
         <width>161</width>
         <height>31</height>
        </rect>
       </property>
       <property name="font">
        <font>
-        <pointsize>18</pointsize>
+        <family>Microsoft JhengHei UI</family>
+        <pointsize>13</pointsize>
+        <weight>50</weight>
+        <bold>false</bold>
+        <kerning>false</kerning>
        </font>
       </property>
       <property name="text">
@@ -3615,6 +3671,22 @@ border-radius: 50;
        <set>Qt::AlignCenter</set>
       </property>
      </widget>
+     <zorder>label_13</zorder>
+     <zorder>lb_back4</zorder>
+     <zorder>lb_a0</zorder>
+     <zorder>lb_a1</zorder>
+     <zorder>lb_a2</zorder>
+     <zorder>lb_a3</zorder>
+     <zorder>lb_a5</zorder>
+     <zorder>lb_a4</zorder>
+     <zorder>label_34</zorder>
+     <zorder>label_35</zorder>
+     <zorder>label_36</zorder>
+     <zorder>label_37</zorder>
+     <zorder>label_38</zorder>
+     <zorder>label_39</zorder>
+     <zorder>label_40</zorder>
+     <zorder>widget3</zorder>
     </widget>
     <widget class="QWidget" name="widget5" native="true">
      <property name="geometry">
@@ -3772,19 +3844,6 @@ border-radius: 50;
        <string/>
       </property>
      </widget>
-     <widget class="QLabel" name="label_16">
-      <property name="geometry">
-       <rect>
-        <x>260</x>
-        <y>260</y>
-        <width>63</width>
-        <height>15</height>
-       </rect>
-      </property>
-      <property name="text">
-       <string>5</string>
-      </property>
-     </widget>
      <widget class="QLabel" name="lb_back5">
       <property name="geometry">
        <rect>
@@ -3807,6 +3866,90 @@ border-radius: 50;
        <set>Qt::AlignCenter</set>
       </property>
      </widget>
+     <widget class="QLabel" name="lb_lv_2">
+      <property name="geometry">
+       <rect>
+        <x>250</x>
+        <y>348</y>
+        <width>159</width>
+        <height>21</height>
+       </rect>
+      </property>
+      <property name="font">
+       <font>
+        <family>Microsoft JhengHei UI</family>
+        <pointsize>11</pointsize>
+        <weight>50</weight>
+        <bold>false</bold>
+        <kerning>false</kerning>
+       </font>
+      </property>
+      <property name="styleSheet">
+       <string notr="true">color: #e0e0e0</string>
+      </property>
+      <property name="text">
+       <string>Lv.2</string>
+      </property>
+      <property name="alignment">
+       <set>Qt::AlignCenter</set>
+      </property>
+      <property name="wordWrap">
+       <bool>true</bool>
+      </property>
+     </widget>
+     <widget class="QLabel" name="lb_nick_2">
+      <property name="geometry">
+       <rect>
+        <x>250</x>
+        <y>324</y>
+        <width>159</width>
+        <height>21</height>
+       </rect>
+      </property>
+      <property name="font">
+       <font>
+        <family>Microsoft JhengHei UI</family>
+        <pointsize>11</pointsize>
+        <weight>50</weight>
+        <bold>false</bold>
+        <kerning>false</kerning>
+       </font>
+      </property>
+      <property name="styleSheet">
+       <string notr="true">color: #e0e0e0</string>
+      </property>
+      <property name="text">
+       <string>窜天猴</string>
+      </property>
+      <property name="alignment">
+       <set>Qt::AlignCenter</set>
+      </property>
+      <property name="wordWrap">
+       <bool>true</bool>
+      </property>
+     </widget>
+     <widget class="QLabel" name="lb_avata_2">
+      <property name="geometry">
+       <rect>
+        <x>273</x>
+        <y>200</y>
+        <width>115</width>
+        <height>115</height>
+       </rect>
+      </property>
+      <property name="styleSheet">
+       <string notr="true"/>
+      </property>
+      <property name="text">
+       <string/>
+      </property>
+      <property name="scaledContents">
+       <bool>true</bool>
+      </property>
+      <property name="alignment">
+       <set>Qt::AlignCenter</set>
+      </property>
+     </widget>
     </widget>
     <zorder>label</zorder>
     <zorder>lb1</zorder>
@@ -3814,14 +3957,14 @@ border-radius: 50;
     <zorder>lb3</zorder>
     <zorder>lb2</zorder>
     <zorder>lb_avata</zorder>
-    <zorder>label_7</zorder>
+    <zorder>lb_exit</zorder>
     <zorder>lb_nick</zorder>
     <zorder>lb_lv</zorder>
     <zorder>label_8</zorder>
     <zorder>lb5</zorder>
-    <zorder>widget5</zorder>
-    <zorder>widget2</zorder>
     <zorder>widget3</zorder>
+    <zorder>widget2</zorder>
+    <zorder>widget5</zorder>
     <zorder>widget4</zorder>
     <zorder>widget1</zorder>
    </widget>
