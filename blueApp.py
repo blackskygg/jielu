@@ -1,3 +1,4 @@
+
 import PyQt5
 from PyQt5 import QtCore, QtGui, QtWidgets
 from PyQt5.QtWidgets import QApplication, QSystemTrayIcon, QLabel
@@ -66,9 +67,9 @@ class BlueApp:
         self.pornDetected = False
         self.detectThread = threading.Thread(target = self.detectPorn)
         self.detectThread.start()
+        self.alarm = False  #first alarm, then take action
 
         #setup timer
-
         self.cleanMinute = 0
         self.MinuteTimer = QTimer()
         self.MinuteTimer.setInterval(1000 * 60)
@@ -101,30 +102,33 @@ class BlueApp:
 
 
     def detectPorn(self):
-        if self.timeToExit:
-            exit()
         while(True):
             if "PORN_DETECTED" == self.pornDectector.porn_detector(self.settings["image_detect"], self.settings["text_detect"], self.devMode):
-                self.call_zqz()
-                self.stat["cleanHours"] -= 24
-                if self.stat["cleanHours"] < 0:
-                    self.stat["cleanHours"] = 0
+                if self.alarm:
+                    self.call_zqz()
+                    self.stat["cleanHours"] -= 24
+                    if self.stat["cleanHours"] < 0:
+                        self.stat["cleanHours"] = 0
 
-                l = self.stat["stat"][time.localtime(time.time())[6]]
-                h = time.localtime(time.time())[3]
-                if h >= 0 and h < 6:
-                    l[0] = 1
-                elif h >= 6 and h < 12:
-                    l[1] = 1
-                elif h >= 12 and h < 18:
-                    l[2] = 1;
+                    l = self.stat["stat"][time.localtime(time.time())[6]]
+                    h = time.localtime(time.time())[3]
+                    if h >= 0 and h < 6:
+                        l[0] = 1
+                    elif h >= 6 and h < 12:
+                        l[1] = 1
+                    elif h >= 12 and h < 18:
+                        l[2] = 1;
+                    else:
+                        l[3] = 1;
                 else:
-                    l[3] = 1;
+                    self.alarm = True
+            else:
+                self.alarm = True
 
                 self.saveStatistics()
                 self.refreshStatistics()
 
-            time.sleep(4)
+            time.sleep(10)
 
     def onClose(self, event):
         self.mainWindow.hide()
@@ -294,9 +298,13 @@ class BlueApp:
             QtWidgets.QMessageBox.information(None, "bluer", "开发者模式关闭")
             self.devMode = False
 
+    def avataEdit(self, event):
+        openDlg = QtWidgets.QFontDialog()
+        openDlg.open()
+
     def setupUi2(self):
         #setup event handling
-        self.sideButtons = [self.ui.lb1, self.ui.lb2, self.ui.lb3, self.ui.lb4, self.ui.lb5]
+        self.sideButtons = [self.ui.lb1, self.ui.lb2, self.ui.lb3, self.ui.lb4]
         self.ui.lb_exit.mousePressEvent = self.appExit
         self.setupAnimes()
         self.setupSideButtons()
@@ -308,6 +316,9 @@ class BlueApp:
         self.trayIcon.setIcon(self.icon)
         self.trayIcon.activated.connect(self.onTrayClicked)
         self.trayIcon.show()
+
+        #setup the info edit
+        self.ui.lb_avata.mousePressEvent = self.avataEdit
 
     def setupAnimes(self):
         self.shiftAnime1 = QPropertyAnimation()
@@ -338,13 +349,6 @@ class BlueApp:
         self.shiftAnime4.setStartValue(QRect(800, 29, 623, 571))
         self.shiftAnime4.setEndValue(QRect(177, 29, 623, 571))
 
-        self.shiftAnime5 = QPropertyAnimation()
-        self.shiftAnime5.setTargetObject(self.ui.widget5)
-        self.shiftAnime5.setPropertyName("geometry".encode())
-        self.shiftAnime5.setDuration(400)
-        self.shiftAnime5.setStartValue(QRect(800, 29, 623, 571))
-        self.shiftAnime5.setEndValue(QRect(177, 29, 623, 571))
-
         self.selectedWidget = self.ui.widget1
 
 
@@ -374,9 +378,6 @@ class BlueApp:
     def slideEnter4(self, event):
         self.setSlideMid(self.ui.lb4)
 
-    def slideEnter5(self, event):
-        self.setSlideMid(self.ui.lb5)
-
     def slideLeave1(self, event):
         self.setSlideUp(self.ui.lb1)
 
@@ -388,9 +389,6 @@ class BlueApp:
 
     def slideLeave4(self, event):
         self.setSlideUp(self.ui.lb4)
-
-    def slideLeave5(self, event):
-        self.setSlideUp(self.ui.lb5)
 
     def slideBack(self, event):
         self.setSlideDown(self.ui.lb1)
@@ -440,14 +438,6 @@ class BlueApp:
             self.ui.widget4.raise_()
             self.shiftAnime4.start()
             self.selectedWidget = self.ui.widget4
-
-
-    def slideClicked5(self, event):
-        self.setSlideDown(self.ui.lb5)
-        if self.selectedWidget != self.ui.widget5:
-            self.ui.widget5.raise_()
-            self.shiftAnime5.start()
-            self.selectedWidget = self.ui.widget5
 
     def setupWidget1(self):
         #setup the tree
@@ -562,13 +552,11 @@ class BlueApp:
         self.ui.lb4.enterEvent = self.slideEnter4
         self.ui.lb4.leaveEvent = self.slideLeave4
         self.ui.lb4.mousePressEvent = self.slideClicked4
-        self.ui.lb5.enterEvent = self.slideEnter5
-        self.ui.lb5.leaveEvent = self.slideLeave5
-        self.ui.lb5.mousePressEvent = self.slideClicked5
+
+
         self.ui.lb_back2.mousePressEvent = self.slideBack
         self.ui.lb_back3.mousePressEvent = self.slideBack
         self.ui.lb_back4.mousePressEvent = self.slideBack
-        self.ui.lb_back5.mousePressEvent = self.slideBack
 
 
         for lb in self.sideButtons:
