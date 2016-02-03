@@ -50,7 +50,7 @@ class PornDetector:
             return "NO_INTERNET"
 
     def update_photo(self):
-        os.system("scrot " + filename)
+        os.system("scrot -z " + filename)
         self._img_bin = open(filename, 'rb').read()
         # headers = self.headers_gen({"Content-Type" : "image/jpeg"} )
         # params = self.params_gen()
